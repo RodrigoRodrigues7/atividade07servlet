@@ -11,6 +11,7 @@ public class Aluno {
 	private int id;
 	private String nome;
 	private String cpf;
+	private String email;
 	@Embedded
 	private Endereco endereco;
 	
@@ -38,6 +39,14 @@ public class Aluno {
 		this.cpf = cpf;
 	}
 	
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	public Endereco getEndereco() {
 		return endereco;
 	}

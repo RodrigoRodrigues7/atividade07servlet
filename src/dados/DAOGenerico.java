@@ -72,10 +72,10 @@ public abstract class DAOGenerico<Entity> {
 			tx.begin();
 			em.persist(objeto);
 			tx.commit();
-			em.close();
 		} catch (PersistenceException e) {
 			tx.rollback();
 		}
+		em.close();
 	}
 
 	/**
