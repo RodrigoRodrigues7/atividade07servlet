@@ -3,7 +3,7 @@ package dados;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-public class DAOFactory {
+public abstract class DAOFactory {
 
 	private static final EntityManagerFactory factory;
 	
