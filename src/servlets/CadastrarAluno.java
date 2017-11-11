@@ -12,7 +12,6 @@ import classesBasicas.Aluno;
 import dados.DAOAluno;
 import dados.DAOFactory;
 
-
 @WebServlet("/CadastrarAluno")
 public class CadastrarAluno extends HttpServlet {
 
@@ -27,28 +26,24 @@ public class CadastrarAluno extends HttpServlet {
 		res.getWriter().append("Served at: ").append(req.getContextPath());
 	}
 
-	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		
-		
+	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {	
+	
 		Aluno aluno = new Aluno();
-		
 		try {
 			
 			String Rnome = req.getParameter("nome");
 			String Rcpf = req.getParameter("cpf");
-			String Remail = req.getParameter("email");
-			
+			String Remail = req.getParameter("email");	
 			aluno.setNome(Rnome);
 			aluno.setCpf(Rcpf);
 			aluno.setEmail(Remail);
 			
 			DAOAluno dao = DAOFactory.getAlunoDAO();
-//			dao.insert(aluno);
+			dao.insert(aluno);
 			
 		} catch (Exception e) {
 			e.getMessage();
-		}
-		
+		}		
 		
 	}
 

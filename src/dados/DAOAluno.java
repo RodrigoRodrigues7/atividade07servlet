@@ -1,9 +1,10 @@
 package dados;
 
-import javax.persistence.Entity;
 import javax.persistence.EntityManagerFactory;
 
-public class DAOAluno extends DAOGenerico<Entity> {
+import classesBasicas.Aluno;
+
+public class DAOAluno extends DAOGenerico<Aluno> {
 
 	public DAOAluno(EntityManagerFactory emf) {
 		super(emf);
