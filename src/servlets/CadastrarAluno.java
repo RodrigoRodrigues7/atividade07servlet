@@ -13,7 +13,7 @@ import classesBasicas.Aluno;
 import dados.DAOAluno;
 import dados.DAOFactory;
 
-@WebServlet("/CadastrarAluno")
+@WebServlet("/cadastraraluno")
 public class CadastrarAluno extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
@@ -21,17 +21,19 @@ public class CadastrarAluno extends HttpServlet {
     public CadastrarAluno() {
     	
     }
-
+   
+    @Override
     protected void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+
+    	Aluno aluno = new Aluno();
     	
-		Aluno aluno = new Aluno();
 		try {
 			
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("com.mysql.jdbc.Driver");			
 			
-			String Rnome = req.getParameter("nome");
+	    	String Rnome = req.getParameter("nome");
 			String Rcpf = req.getParameter("cpf");
-			String Remail = req.getParameter("email");	
+			String Remail = req.getParameter("email");
 			aluno.setNome(Rnome);
 			aluno.setCpf(Rcpf);
 			aluno.setEmail(Remail);
@@ -39,17 +41,17 @@ public class CadastrarAluno extends HttpServlet {
 			DAOAluno dao = DAOFactory.getAlunoDAO();
 			dao.insert(aluno);
 			
-			PrintWriter out = res.getWriter();
-			out.println("<html>");
-			out.println("<body>");
-			out.println("Aluno " + aluno.getNome() + " cadastrado com sucesso!");
-			out.println("</body>");
-			out.println("</html>");
-			
 		} catch (Exception e) {
 			e.getMessage();
-		}
-    	
+		}	
+		
+		PrintWriter out = res.getWriter();
+		out.println("<html>");
+		out.println("<body>");
+		out.println("Aluno cadastrado com sucesso!");
+		out.println("</body>");
+		out.println("</html>");
+		
     }
     
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
@@ -59,28 +61,7 @@ public class CadastrarAluno extends HttpServlet {
 
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {	
 	
-//		Aluno aluno = new Aluno();
-//		try {
-//			
-//			Class.forName("com.mysql.jdbc.Driver");
-//			
-//			String Rnome = req.getParameter("nome");
-//			String Rcpf = req.getParameter("cpf");
-//			String Remail = req.getParameter("email");	
-//			aluno.setNome(Rnome);
-//			aluno.setCpf(Rcpf);
-//			aluno.setEmail(Remail);
-//			
-//			DAOAluno dao = DAOFactory.getAlunoDAO();
-//			dao.insert(aluno);
-//			
-//			PrintWriter out = res.getWriter();
-//			out.println("Aluno " + aluno.getNome() + " cadastrado com sucesso!");
-//			out.close();
-//			
-//		} catch (Exception e) {
-//			e.getMessage();
-//		}		
+		
 		
 	}
 
