@@ -11,19 +11,13 @@ pageEncoding="UTF-8"%>
 <body>
 
 	<h1>Insira os Dados do Aluno</h1>
-	<form action="CadastrarAluno" method="POST">
+	<form action="cadastraraluno">
 		
-		Nome: <br>
-		<input type="text" name="nome">
+		Nome:  <input type="text" name="nome">
 		<br>
+		CPF:   <input type="text" name="cpf">
 		<br>
-		CPF: <br>
-		<input type="text" name="cpf">
-		<br>
-		<br>
-		Email: <br>
-		<input type="text" name="email">
-		<br>
+		Email: <input type="text" name="email">
 		<br>
 
 		<button type="submit" value="cadastrar">Cadastrar</button>
