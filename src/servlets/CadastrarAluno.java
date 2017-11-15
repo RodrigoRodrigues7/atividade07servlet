@@ -3,6 +3,7 @@ package servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -24,45 +25,41 @@ public class CadastrarAluno extends HttpServlet {
    
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-
-    	Aluno aluno = new Aluno();
     	
-		try {
-			
-			Class.forName("com.mysql.jdbc.Driver");			
-			
-	    	String Rnome = req.getParameter("nome");
-			String Rcpf = req.getParameter("cpf");
-			String Remail = req.getParameter("email");
-			aluno.setNome(Rnome);
-			aluno.setCpf(Rcpf);
-			aluno.setEmail(Remail);
-			
-			DAOAluno dao = DAOFactory.getAlunoDAO();
-			dao.insert(aluno);
-			
-		} catch (Exception e) {
-			e.getMessage();
-		}	
-		
-		PrintWriter out = res.getWriter();
-		out.println("<html>");
-		out.println("<body>");
-		out.println("Aluno cadastrado com sucesso!");
-		out.println("</body>");
-		out.println("</html>");
-		
     }
     
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		res.getWriter().append("Served at: ").append(req.getContextPath());
+		
+		
+		
 	}
 
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {	
-	
+		
+    	Aluno aluno = new Aluno();
+    	
+	    String nome = req.getParameter("nome");
+		String cpf = req.getParameter("cpf");
+		String email = req.getParameter("email");
+		aluno.setNome(nome);
+		aluno.setCpf(cpf);
+		aluno.setEmail(email);
+		
+		DAOAluno dao = DAOFactory.getAlunoDAO();
+		dao.insert(aluno);	
+		
+		res.setContentType("text/html");
+		PrintWriter out = res.getWriter();
+		String message = null;  // message will be sent back to client
+		
+		message = "Olá " + nome + ".<br>Seja Bem Vindo!";
+		req.setAttribute("message", message);
+		
+		// enviando para o servlet helloworld
+		req.getRequestDispatcher("/welcome.jsp").forward(req, res);
 		
 		
+		out.close();
 	}
 
 }

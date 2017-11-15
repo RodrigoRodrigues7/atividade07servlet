@@ -1,9 +1,8 @@
-<!DOCTYPE xml>
 <persistence version="2.0" 
 	xmlns="http://java.sun.com/xml/ns/persistence" 
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
-	<persistence-unit name="ProjetoClinic" transaction-type="RESOURCE_LOCAL">
+	<persistence-unit name="Atividade07Serv" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		<properties>
 			<property name="hibernate.dialect"
@@ -15,7 +14,7 @@
 			<property name = "javax.persistence.jdbc.user" value="root" />
 			<property name = "javax.persistence.jdbc.password" value="" />
 			<property name = "javax.persistence.jdbc.url"
-				value="jdbc:mysql://localhost:3306/atividade07?createDatabaseIfNotExist=true" />
+				value="jdbc:mysql://localhost:3306/atividade07" />
 		</properties>
 	</persistence-unit>
 </persistence>
