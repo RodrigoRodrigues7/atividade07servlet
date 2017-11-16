@@ -13,15 +13,16 @@ pageEncoding="UTF-8"%>
 	<h1>Insira os Dados do Aluno</h1>
 	<form action="cadastraraluno">
 		
-		Nome:  <input type="text" name="nome">
+		Nome: <input type="text" name="nome" placeholder="Enter Name Here">
 		<br>
-		CPF:   <input type="text" name="cpf">
+		CPF: <input type="text" name="cpf" placeholder="Enter Cpf Here">
 		<br>
-		Email: <input type="text" name="email">
+		Email: <input type="text" name="email" placeholder="Enter Email Here">
+		<br>
 		<br>
 
 		<button type="submit" value="cadastrar">Cadastrar</button>
-		<button type="clear">Limpar</button>
+		<button type="reset">Limpar</button>
 
 	</form>
 
